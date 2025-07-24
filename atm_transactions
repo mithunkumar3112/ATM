@@ -1,0 +1,23 @@
+-- ✅ Create Database
+CREATE DATABASE IF NOT EXISTS atm_system;
+
+-- ✅ Use the database
+USE atm_system;
+
+-- ✅ Create Table
+CREATE TABLE IF NOT EXISTS atm_transactions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    transaction_date DATE,
+    amount_withdrawn DOUBLE
+);
+
+-- ✅ Insert sample data (last 7 days)
+INSERT INTO atm_transactions (transaction_date, amount_withdrawn)
+VALUES 
+  (CURDATE() - INTERVAL 1 DAY, 12000),
+  (CURDATE() - INTERVAL 2 DAY, 8000),
+  (CURDATE() - INTERVAL 3 DAY, 10000),
+  (CURDATE() - INTERVAL 4 DAY, 9500),
+  (CURDATE() - INTERVAL 5 DAY, 11000),
+  (CURDATE() - INTERVAL 6 DAY, 10500),
+  (CURDATE() - INTERVAL 7 DAY, 7000);
